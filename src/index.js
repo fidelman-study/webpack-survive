@@ -1,3 +1,3 @@
-console.log('Hello Webpack');
+import component from "./component";
 
-// execute node_modules/.bin/webpack --mode development
+document.body.appendChild(component());
