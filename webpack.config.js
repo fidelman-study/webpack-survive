@@ -1,6 +1,12 @@
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+const ErrorOverlayPlugin = require('error-overlay-webpack-plugin');
 
 module.exports = {
+  entry: './src/index.js',
+  output: {
+    path: __dirname + '/dist',
+    filename: 'main.js',
+  },
   devServer: {
     // Display only errors to reduce the amount of output.
     stats: "errors-only",
@@ -14,11 +20,11 @@ module.exports = {
     // unlike default `localhost`.
     host: process.env.HOST, // Defaults to `localhost`
     port: process.env.PORT, // Defaults to 8080
-    open: true, // Open the page in browser
   },
   plugins: [
+    // new ErrorOverlayPlugin(),
     new HtmlWebpackPlugin({
       title: "Webpack demo",
-    }),
+    })
   ],
 };
